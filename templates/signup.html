@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design for all devices -->
+    <title>Sign Up</title> <!-- Sets the page title -->
+
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Main container for the Sign Up page -->
+    <div class="container">
+        <!-- Page Heading -->
+        <h2>Sign Up</h2>
+
+        <!-- Sign Up Form -->
+        <form method="POST" class="form-box">
+            <!-- Input field for the username -->
+            <input type="text" name="username" placeholder="Username" required>
+            
+            <!-- Input field for the password -->
+            <input type="password" name="password" placeholder="Password" required>
+            
+            <!-- Dropdown menu to select the user role -->
+            <select name="role" required>
+                <option value="" disabled selected>Select Role</option> <!-- Placeholder option -->
+                <option value="hr">HR</option> <!-- Option for HR role -->
+                <option value="applicant">Applicant</option> <!-- Option for Applicant role -->
+            </select>
+            
+            <!-- Submit button to complete the sign-up process -->
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+
+        <!-- Link to redirect users to the Sign In page -->
+        <div class="link-box">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Sign In</a></p>
+        </div>
+    </div>
+</body>
+</html>

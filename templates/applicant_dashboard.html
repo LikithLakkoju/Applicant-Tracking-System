@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design for all devices -->
+    <title>Applicant Dashboard</title> <!-- Sets the page title -->
+
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Main container for the Applicant Dashboard -->
+    <div class="container">
+        <!-- Dashboard Heading -->
+        <h2>Applicant Dashboard</h2>
+        
+        <!-- Job Description Section -->
+        <h3>Job Description</h3>
+        <!-- Display the job description fetched from the backend -->
+        <p>{{ job_description }}</p>
+        
+        <!-- Form to upload the resume -->
+        <form method="POST" enctype="multipart/form-data" class="form-box">
+            <!-- File input for uploading a resume, accepts only PDF files -->
+            <input type="file" name="resume" accept="application/pdf" required>
+            <!-- Submit button for uploading the resume -->
+            <button type="submit" class="submit-btn">Upload Resume</button>
+        </form>
+
+        <!-- Logout link to log the user out of the system -->
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+</body>
+</html>

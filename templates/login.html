@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on all devices -->
+    <title>Sign In</title> <!-- Sets the title of the page -->
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Main container for the Sign In page -->
+    <div class="container">
+        <!-- Page Heading -->
+        <h2>Sign In</h2>
+
+        <!-- Section containing login options for HR and Applicant -->
+        <div class="login-sections">
+
+            <!-- HR Login Section -->
+            <div class="login-box">
+                <h3>HR Login</h3>
+                <!-- HR Login Form -->
+                <form method="POST" action="{{ url_for('login_hr') }}" class="form-box">
+                    <!-- Input field for HR username -->
+                    <input type="text" name="username" placeholder="Username" required>
+                    <!-- Input field for HR password -->
+                    <input type="password" name="password" placeholder="Password" required>
+                    <!-- Submit button for HR login -->
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+            </div>
+
+            <!-- Applicant Login Section -->
+            <div class="login-box">
+                <h3>Applicant Login</h3>
+                <!-- Applicant Login Form -->
+                <form method="POST" action="{{ url_for('login_applicant') }}" class="form-box">
+                    <!-- Input field for Applicant username -->
+                    <input type="text" name="username" placeholder="Username" required>
+                    <!-- Input field for Applicant password -->
+                    <input type="password" name="password" placeholder="Password" required>
+                    <!-- Submit button for Applicant login -->
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Link to Sign Up page -->
+        <div class="link-box">
+            <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>

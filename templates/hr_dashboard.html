@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design for all devices -->
+    <title>HR Dashboard</title> <!-- Sets the page title -->
+
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Main container for the HR Dashboard -->
+    <div class="container">
+        <!-- Dashboard Heading -->
+        <h2>HR Dashboard</h2>
+        
+        <!-- Form for entering the job description -->
+        <form method="POST" class="form-box">
+            <!-- Text area for job description input -->
+            <textarea name="job_description" placeholder="Enter Job Description" rows="5" required></textarea>
+            <!-- Submit button for saving the job description -->
+            <button type="submit" class="submit-btn">Save Job Description</button>
+        </form>
+        
+        <!-- Section for listing uploaded resumes -->
+        <h3>Uploaded Resumes</h3>
+        <ul>
+            <!-- Loop through the uploaded resumes -->
+            {% for resume in resumes %}
+                <li>
+                    <!-- Display the name of the resume -->
+                    {{ resume }}
+                    
+                    <!-- Form for evaluating the resume -->
+                    <form method="POST" action="{{ url_for('evaluate_resume') }}" class="form-box" style="display:inline;">
+                        <input type="hidden" name="resume" value="{{ resume }}"> <!-- Hidden field to pass the resume name -->
+                        <button type="submit" name="action" value="tell_me_about_the_resume" class="submit-btn">Tell Me About the Resume</button> <!-- Action: Generate a detailed evaluation -->
+                        <button type="submit" name="action" value="percentage_match" class="submit-btn">Percentage Match</button> <!-- Action: Calculate a percentage match -->
+                    </form>
+                    
+                    <!-- Form for deleting the resume -->
+                    <form method="POST" action="{{ url_for('delete_resume') }}" class="form-box" style="display:inline;">
+                        <input type="hidden" name="resume_name" value="{{ resume }}"> <!-- Hidden field to pass the resume name -->
+                        <button type="submit" class="submit-btn">Delete Resume</button> <!-- Action: Delete the resume -->
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        
+        <!-- Logout link -->
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+</body>
+</html>
