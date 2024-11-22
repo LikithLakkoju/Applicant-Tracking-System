@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header>
+        <h1>Applicant Tracking System</h1> <!-- Main Title -->
+    </header>
     <!-- Main container for the HR Dashboard -->
     <div class="container">
         <!-- Dashboard Heading -->
@@ -25,7 +28,7 @@
         
         <!-- Section for listing uploaded resumes -->
         <h3>Uploaded Resumes</h3>
-        <ul>
+        <ul class="resumes-list">
             <!-- Loop through the uploaded resumes -->
             {% for resume in resumes %}
                 <li>

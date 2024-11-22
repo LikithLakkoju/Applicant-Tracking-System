@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header>
+        <h1>Applicant Tracking System</h1> <!-- Main Title -->
+    </header>
     <!-- Main container for the Applicant Dashboard -->
     <div class="container">
         <!-- Dashboard Heading -->
@@ -18,7 +21,7 @@
         <!-- Job Description Section -->
         <h3>Job Description</h3>
         <!-- Display the job description fetched from the backend -->
-        <p>{{ job_description }}</p>
+        <p class="job-description">{{ job_description }}</p>
         
         <!-- Form to upload the resume -->
         <form method="POST" enctype="multipart/form-data" class="form-box">

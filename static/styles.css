@@ -3,9 +3,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #e8f4f8; /* Light blue background for the page */
+    background-image: linear-gradient(to bottom right, #e8f4f8, #c0e0ed); /* Gradient effect for a modern look */
     color: #333;
     line-height: 1.6;
+    text-align: center; /* Center all text by default */
 }
 
 header {
@@ -13,6 +15,7 @@ header {
     color: #fff;
     padding: 10px 20px;
     text-align: center;
+    border-bottom: 5px solid #0056b3; /* Add a subtle border for emphasis */
 }
 
 a {
@@ -26,14 +29,20 @@ a:hover {
 }
 
 /* Container */
+/* Container */
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+    width: 90%; /* Adjust to occupy most of the screen width */
+    max-width: 1200px; /* Limit the maximum width for larger screens */
+    margin: auto; /* Center the container horizontally */
     padding: 20px;
     background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for contrast */
+    height: auto; /* Automatically adjust height based on content */
+    min-height: 80vh; /* Ensure the container takes up most of the vertical space */
+    display: flex; /* Use flexbox for vertical centering */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
 }
 
 /* Buttons */
@@ -41,16 +50,17 @@ button, .btn {
     display: inline-block;
     background: #007bff;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 20px; /* Slightly larger buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease; /* Add a hover effect */
 }
 
 button:hover, .btn:hover {
     background: #0056b3;
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
 }
 
 .btn-danger {
@@ -63,21 +73,30 @@ button:hover, .btn:hover {
 
 /* Forms */
 form {
-    margin-top: 20px;
+    margin: 20px 0;
+    text-align: center; /* Center the form */
 }
 
 form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #007bff; /* Match the label color with the theme */
 }
 
 form input, form textarea, form select {
-    width: 100%;
+    width: 90%; /* Slightly reduce width for better centering */
+    max-width: 500px; /* Limit the maximum width */
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto; /* Center each field */
     border: 1px solid #ccc;
     border-radius: 5px;
+    display: block; /* Ensure each field is block-level for vertical stacking */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Add a subtle inset shadow */
+}
+
+form button {
+    margin-top: 20px; /* Add space above the submit button */
 }
 
 /* Tables */
@@ -104,7 +123,7 @@ table th {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    margin: 10px 0;
+    margin: 10px auto; /* Center each card */
     background: #f9f9f9;
 }
 
@@ -136,16 +155,18 @@ table th {
 /* Footer */
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     background: #333;
     color: #fff;
     margin-top: 20px;
+    border-top: 5px solid #007bff; /* Add a border to match the theme */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
         width: 95%;
+        margin: 20px auto;
     }
 
     .navbar {
@@ -161,4 +182,15 @@ footer {
     table tr {
         margin-bottom: 15px;
     }
+
+    form input, form textarea, form select {
+        width: 100%; /* Ensure full-width fields on smaller screens */
+    }
+}
+
+ul.resumes-list, .resumes-container,.job-description,.responses {
+    text-align: justify; /* Justify text */
+    word-wrap: break-word; /* Handle long text gracefully */
+    margin: 20px auto; /* Add spacing and center the list */
+    padding: 10px;
 }
